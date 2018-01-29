@@ -34,9 +34,11 @@ $("ul").on("click", "span", function(event){
 $("input[type='text']").keypress(function(event){
   if (event.which === 13) {
       var text = $(this).val(); // valor del input
-      $(this).val("");
-      // create a new todo to append to ul
-      $("ul").append("<li><span><i class='fa fa-trash-o'></i></span> " + text + "</li>");
+      if(text != "" && text.length > 3){
+      	$(this).val("");
+      	// create a new todo to append to ul
+      	$("ul").append("<li><span><i class='fa fa-trash-o'></i></span> " + text + "</li>");
+      }
   }
 });
 
